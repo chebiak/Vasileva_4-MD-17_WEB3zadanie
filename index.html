@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Крипторынок — живой дашборд</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <h1>Крипторынок</h1>
+        <p class="status" id="status" aria-live="polite">Загружаю данные…</p>
+      </div>
+      <div class="controls">
+        <div class="seg" id="currency" role="group" aria-label="Валюта"></div>
+        <button id="refresh" class="btn" type="button">Обновить</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="hero" id="hero" aria-label="Выбранная монета">
+        <div class="hero-head">
+          <div class="coin-id" id="hero-coin"></div>
+          <div class="seg dark" id="ranges" role="group" aria-label="Период графика">
+            <button type="button" data-days="1" aria-pressed="false">24 ч</button>
+            <button type="button" data-days="7" aria-pressed="true">7 дн.</button>
+            <button type="button" data-days="30" aria-pressed="false">30 дн.</button>
+            <button type="button" data-days="90" aria-pressed="false">90 дн.</button>
+            <button type="button" data-days="365" aria-pressed="false">Год</button>
+          </div>
+        </div>
+        <div class="hero-price" id="hero-price"></div>
+        <div class="chart" id="chart"><p class="loading">Загружаю график…</p></div>
+        <dl class="hero-stats" id="hero-stats"></dl>
+        <p class="meta" id="hero-meta"></p>
+      </section>
+
+      <div class="side">
+        <section class="card" id="card-global" aria-labelledby="h-global">
+          <div class="card-head"><h2 id="h-global">Весь рынок</h2></div>
+          <div class="body"><p class="loading">Загружаю…</p></div>
+          <p class="meta"></p>
+        </section>
+
+        <section class="card" id="card-fng" aria-labelledby="h-fng">
+          <div class="card-head"><h2 id="h-fng">Индекс страха и жадности</h2></div>
+          <div class="body"><p class="loading">Загружаю…</p></div>
+          <p class="meta"></p>
+        </section>
+      </div>
+
+      <section class="card markets" id="card-markets" aria-labelledby="h-markets">
+        <div class="card-head">
+          <h2 id="h-markets">Крупнейшие монеты</h2>
+          <span class="hint">Нажмите на строку — график выше переключится</span>
+        </div>
+        <div class="body"><p class="loading">Загружаю…</p></div>
+        <p class="meta"></p>
+      </section>
+
+      <div class="side">
+        <section class="card" id="card-movers" aria-labelledby="h-movers">
+          <div class="card-head"><h2 id="h-movers">Резкие движения за 24 часа</h2></div>
+          <div class="body"><p class="loading">Жду список монет…</p></div>
+        </section>
+
+        <section class="card" id="card-trending" aria-labelledby="h-trending">
+          <div class="card-head"><h2 id="h-trending">Сейчас ищут</h2></div>
+          <div class="body"><p class="loading">Загружаю…</p></div>
+          <p class="meta"></p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>Данные: CoinGecko и Alternative.me, запросы идут прямо из браузера. Это не инвестиционная рекомендация.</p>
+      <ul class="sources" id="sources"></ul>
+    </footer>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
